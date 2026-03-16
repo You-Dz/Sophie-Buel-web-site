@@ -139,7 +139,7 @@ li:hover {
 }
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -189,4 +189,29 @@ footer nav ul {
 .filter-container {
 	display: flex;
 	justify-content: space-between;
+}
+.filter-container button {
+	color: #1D6154;
+	border-radius: 60px;
+	padding:10px 8px;
+	font-size: 16px;
+	font-weight: 700;
+	background-color: #fffef8;
+	border: 2px solid #1D6154;
+	margin: 2em;
+}
+.filter-container button:focus {
+	background-color: #1D6154;
+	color: #fffef8;
+}
+.login-title {
+	justify-self: center;
+	color: #1D6154;
+	font-weight: 700;
+	font-size: 30px;
+}
+#password-link {
+	text-align: center;
+	font-weight: 500;
+	color: #3D3D3D
 }

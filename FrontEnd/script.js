@@ -8,7 +8,10 @@ async function getCategories() {
     const filterContainer = document.createElement("div")
     filterContainer.classList.add("filter-container")
     projects.after(filterContainer) // Ajoute la nouvelle div après le h2
-
+    const buttonAll = document.createElement("button")
+    buttonAll.innerText = "Tous"
+    buttonAll.id = "allCategories"
+    filterContainer.appendChild(buttonAll)
     categories.forEach(category => {
         const buttonFilter = document.createElement("button")
         buttonFilter.innerText = category.name;
@@ -49,11 +52,15 @@ function afficherWorks (works) {
 }
 let lastCategory = null // On déclare une variable qui n'a pas de valeur de base
 function categoriesFilter () {
+    const buttonAll = document.getElementById("allCategories")
+    buttonAll.addEventListener("click", () => {
+        afficherWorks(works)
+    })
     const buttonFilters = document.querySelectorAll(".filter-container button")
     buttonFilters.forEach(buttonFilter => {
         buttonFilter.addEventListener("click", (event) => {
         const chosenCategory = event.target.textContent
-        if (lastCategory === chosenCategory){
+        if (lastCategory === chosenCategory || "Tous" ){
             afficherWorks(works)
             lastCategory = null // On réattribue la valeur de base à la variable 
         } else {
@@ -69,3 +76,5 @@ async function init() {
     categoriesFilter()
 }
 init() 
+
+// Vérification du token qui induit les changement dans le dom 
